@@ -1,4 +1,9 @@
-<chapter xml:id="guidelines.xml">
+<chapter xmlns="http://docbook.org/ns/docbook" 
+         version="5.0" 
+         xmlns:xlink="http://www.w3.org/1999/xlink" 
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xml:id="manual.programming"
+         xml:id="guidelines.xml">
 	<title>XML markup</title>
 	<section>
 		<title>Inline Elements</title>
