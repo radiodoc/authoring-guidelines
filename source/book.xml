@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE book [
-<!ENTITY ctcss-table 	SYSTEM "ctcss-table.xml">
-<!ENTITY dcs-table 	SYSTEM "dcs-table.xml">
-]>
+<!DOCTYPE book>
 <book xmlns="http://docbook.org/ns/docbook" 
       xmlns:xlink="http://www.w3.org/1999/xlink" 
-      xmlns:svg="http://www.w3.org/2000/svg"
       xmlns:xi="http://www.w3.org/2001/XInclude"
       version="5.0" xml:id="manual">
 	<title>Authoring Guidelines</title>
@@ -36,6 +32,10 @@
 		<xi:include href="legalnotice.xml"/>
 	</info>
 
-	<xi:include href="preface.xml"/>
-	<xi:include href="glossary.xml"/>
+	<xi:include href="getting-started.xml"/>
+	<xi:include href="picking-an-editor.xml"/>
+	<!--
+	<xi:include href="asciidoc-guidelines.xml"/>
+	-->
+	<xi:include href="docbook-guidelines.xml"/>
 </book>
