@@ -3,7 +3,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink" 
          xmlns:svg="http://www.w3.org/2000/svg"
          xml:id="docbook-guidelines">
-	<title>XML markup</title>
+	<title>DocBook 5 XML Markup Guidelines</title>
 	<section>
 		<title>Inline Elements</title>
 		<variablelist>
