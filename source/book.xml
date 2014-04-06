@@ -3,7 +3,7 @@
 <book xmlns="http://docbook.org/ns/docbook" 
       xmlns:xlink="http://www.w3.org/1999/xlink" 
       xmlns:xi="http://www.w3.org/2001/XInclude"
-      version="5.0" xml:id="manual">
+      version="5.0" xml:id="authoring-guidelines">
 	<title>Authoring Guidelines</title>
 	<subtitle>The Radio Documentation Project</subtitle>
 	<subtitle><link xlink:href="http://radiodoc.github.com/"/></subtitle>
