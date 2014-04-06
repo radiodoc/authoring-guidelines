@@ -1,6 +1,5 @@
 ###  Model number for the radio, should be same as the repo-name.  ###
 
-MODEL = authoring-guidelines
-SRC = source/book.xml
+NO_REV = true
 
 include ../toolchain/Makefile.base
