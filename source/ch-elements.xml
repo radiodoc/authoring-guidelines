@@ -53,6 +53,14 @@
 			</varlistentry>
 			<varlistentry>
 				<term>
+					<keycap>&upkey;<alt>up</alt></keycap>
+				</term>
+				<listitem>
+					<para></para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>
 					<literal>&lt;literal&gt;</literal>
 				</term>
 				<listitem>
@@ -100,6 +108,46 @@
 				</listitem>
 			</varlistentry>
 		</variablelist>
+		<note>
+			<para>By using the monitor function, enabled from the 
+				<keycap>&upkey;<alt>up</alt></keycap>
+				or
+				<keycap>&downkey;<alt>down</alt></keycap>
+				<inlinemediaobject>
+					<imageobject>
+						<imagedata contentdepth="0.9em" format="png" fileref="figs/key-star.svg.png"/>
+					</imageobject>
+					<alt>Star</alt>
+				</inlinemediaobject>,
+				key below the PTT, you can more easily adjust your volume by adjusting it to the un-squelched static.</para>
+		</note>
+	</section>
+</chapter>
+<chapter>
+	<title>Sections</title>
+	<section>
+		<title>First level</title>
+		<para>This is a first level section</para>
+		<section>
+			<title>Second level</title>
+			<para>This is a second level section</para>
+			<section>
+				<title>Third level</title>
+				<para>This is a third level section</para>
+				<section>
+					<title>Fourth level</title>
+					<para>This is a fourth level section</para>
+					<section>
+						<title>Fifth level</title>
+						<para>This is a fifth level section</para>
+						<section>
+							<title>Sixth level</title>
+							<para>This is a sixth level section</para>
+						</section>
+					</section>
+				</section>
+			</section>
+		</section>
 	</section>
 </chapter>
 
