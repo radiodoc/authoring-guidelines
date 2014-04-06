@@ -3,4 +3,4 @@
 MODEL = authoring-guidelines
 SRC = source/book.xml
 
-include toolchain/Makefile.base
+include ../toolchain/Makefile.base
