@@ -1,0 +1,39 @@
+<preface xmlns="http://docbook.org/ns/docbook" 
+         version="5.0" 
+         xmlns:xlink="http://www.w3.org/1999/xlink" 
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xml:id="getting-started">
+	<title>Getting Started</title>
+	<para><link xlink:href="http://docbook.org">DocBook</link> is an OASIS standard for XML that is ideal for writing long, technical documents that have complex structure and cross-references. With its semantic tagging, DocBook can me rednered as PDF for printing, HTML, <command>man</command> pages, audio or even Braille.  This versaility and reusability make DocBook 5.0 XML the preffered format for O'Reilly books.</para>
+	<para>Not only does this document how to start writing in DocBook, but it was created using the same markup and toolchain used for a tupical O'Reilly book, so you can treat it as a model for your own manuscript.  Chapter 3 contains information about markup.</para>
+	<note>
+		<para>This document exists in two PDF forms: a print-friendly version which displays URLs in parentheses after links, and a web-friendly version, which displays links in blue and hides the URLs.  Please be aware that if you print out the web-friendly version, you may not be able to tell where the links are. See <xref linkend="web-pdfs"/> and <xref linkend="hyperlinks"/> for more information about web versus print PDFs</para>
+	</note>
+	<section>
+		<title>Why DocBook?</title>
+		<para>Why not troff? Why not LaTeX?</para>
+		<para>We've got nothing against LaTeX, troff, or any other formatting markup system.  But typesetting markup like LaTeX is inheritly focused on formatting&#x2014;font size, margins, alignment, etc. We'd rather you spend your time focused on the semantic structure of your book (how sections are divided, which information goes in a sidebar versus a note, and so on), and that's where DocBook shines.  In the smae way most well-designed websites separate content from formatting using HTML and CSS (HTML for the content, and CSS for the formatting), DocBook lets us abstract formatting decisions away from content decisions.</para>
+		<para>Particularly as O'Reilly expands its efforts to provide content in multiple formats and at multiple stages of the content's life cycle, cost-effectively generating multiple, distinct output formats from the same source document becomes critical, even though it means losing some degree of granular control over the output.</para>
+		<para>What does that mean for your book?  It means that you'll be able to view drafts of your book throughout the auhtoring process that are formatted much as they will be for print, and it means once your book is finished, it will go live almost immediately on Safari Books Online and other digital and ebook retail channels, rather than needing to first be converted into DocBook from another format, which can take a week or longer.</para>
+	</section>
+	<section>
+		<title>For More Information on DocBook</title>
+		<para>This guide is tailored specifically to help authors get the most out of our O'Reilly's DocbBook authoring toolchain.  For more general information, see <link xlink:href="http://www.docbook.org/tdg5/en/html/docbook.html">Norm Walsh's DocBook: The Definitive Guide</link>, an excellent online reference for DocBook XML. You'll find reference pages for every DocBook element, including its content model, a description of its purpose, a list of parents that can contain the element and children that can be nested in the element, and the attributes the element takes.  Other resources that may be helpful include:
+		<itemizedlist>
+			<listitem>
+				<para><link xlink:href="http://www.docbook.org/">DocBook.org</link></para>
+			</listitem>
+			<listitem>
+				<para><link xlink:href="http://www.dpawson.co.uk/docbook/reference.html">DocBook Basics and References</link></para>
+			</listitem>
+			<listitem>
+				<para><link xlink:href="http://www.oasis-open.org/docbook/xml/5.0/docbookx.dtd">The DocBook DTD</link></para>
+			</listitem>
+			<listitem>
+				<para><link xlink:href="http://www.sagehill.net/docbookxsl/index.html">DocBook XSL: The Complete Guide</link></para>
+			</listitem>
+		</itemizedlist>
+		</para>
+
+	</section>
+</preface>

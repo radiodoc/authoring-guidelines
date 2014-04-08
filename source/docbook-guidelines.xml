@@ -5,135 +5,27 @@
          xml:id="docbook-guidelines">
 	<title>DocBook 5 XML Markup Guidelines</title>
 	<section>
-		<title>Inline Elements</title>
-		<variablelist>
-			<varlistentry>
-				<term>
-					<citation>&lt;citation&gt;</citation>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<command>&lt;command&gt;</command>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<email>&lt;email&gt;</email>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<emphasis>&lt;emphasis&gt;</emphasis>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<filename>&lt;filename&gt;</filename>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<keycap>&lt;keycap&gt;</keycap>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<keycap>&#x25b2;<alt>up</alt></keycap>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<literal>&lt;literal&gt;</literal>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<replaceable>&lt;replaceable&gt;</replaceable>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<subscript>&lt;subscript&gt;</subscript>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<superscript>&lt;superscript&gt;</superscript>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<ulink>&lt;ulink&gt;</ulink>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term>
-					<userinput>&lt;userinput&gt;</userinput>
-				</term>
-				<listitem>
-					<para></para>
-				</listitem>
-			</varlistentry>
-		</variablelist>
-		<note>
-			<para>By using the monitor function, enabled from the 
-				<keycap>&#x25b2;<alt>up</alt></keycap>
-				or
-				<keycap>&#x25bc;<alt>down</alt></keycap>
-				<inlinemediaobject>
-					<imageobject>
-						<imagedata contentdepth="0.9em" format="png" fileref="figs/key-star.svg.png"/>
-					</imageobject>
-					<alt>Star</alt>
-				</inlinemediaobject>,
-				key below the PTT, you can more easily adjust your volume by adjusting it to the un-squelched static.</para>
-		</note>
-	</section>
-</chapter>
-<!--
-<chapter>
-	<title>Sections</title>
-	<section>
-		<title>First level</title>
-		<para>This is a first level section</para>
+		<title>Keep it simple</title>
 		<section>
+			<title>Using Elements Correctly</title>
+		</section>
+		<section>
+			<title>Sample Markup and PDFs</title>
+		</section>
+	</section>
+	<section>
+		<title>Organising your files</title>
+		<section>
+			<title>Adding Chapters to the Book</title>
+		</section>
+		<section>
+			<title>Dividing the Book into Parts</title>
+		</section>
+		<section>
+			<title>Adding a Foreword and/or an Afterword</title>
+		</section>
+		<section>
+			<title>Using sections</title>
 			<title>Second level</title>
 			<para>This is a second level section</para>
 			<section>
@@ -152,7 +44,281 @@
 					</section>
 				</section>
 			</section>
+<!--
+-->
+		</section>
+		<section>
+			<title>Creating cross-references</title>
 		</section>
 	</section>
+	<section>
+		<title>Common Elements</title>
+		<section>
+			<title>Block Elements Versus Inline Elements</title>
+		</section>
+		<section>
+			<title>Inline Font Markup</title>
+			<para>Here are the most common inline elements:</para>
+			<variablelist>
+				<varlistentry>
+					<term>
+						<citation>&lt;citation&gt;</citation>
+					</term>
+					<listitem>
+						<para>Used in cross/reference syntax. Authors can also use this for hardcoded cross-references to other, non-O'Reilly books.  As in, "See <citation>TITLE</citation>, published by <emphasis>publisher</emphasis></para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<command>&lt;command&gt;</command>
+					</term>
+					<listitem>
+						<para>An executable program, or the entry a user makes to execute a command.  As in, "Compare the two documents using the <command>diff</command> command."</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<email>&lt;email&gt;</email>
+					</term>
+					<listitem>
+						<para>An email address, such as <emphasis>example@oreilly.com</emphasis>. (Note that these will become hyperlinks in online versions, so for fake or example addresses use <literal>&lt;emphasis&gt;</literal> instead.)</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<emphasis>&lt;emphasis&gt;</emphasis>
+					</term>
+					<listitem>
+						<para>Provided for use wher eyou would traditionally use italics to emphasise a word or phrase.</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<emphasis role="bold">&lt;emphasis role="bold"&gt;</emphasis>
+					</term>
+					<listitem>
+						<para>A general-purpose tag provided for where you would use bold type to emphasise a word of phrase.  (Note that O'Reilly house style prefer italics for emphasis.)</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<emphasis role="roman">&lt;emphasis role="roman"&gt;</emphasis>
+					</term>
+					<listitem>
+						<para>Provided for use within italicized text where you would ordinarilly use italics to emphasize a word of phrase.</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<filename>&lt;filename&gt;</filename>
+					</term>
+					<listitem>
+						<para>Used for the name of a file, directory, or path (e.g. <filename>/usr/bin</filename>).</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<keycap>&lt;keycap&gt;</keycap>
+					</term>
+					<listitem>
+						<para>The text printed on a physical key on a computer keyboard (e.g. <keycap>Return</keycap>).</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<literal>&lt;literal&gt;</literal>
+					</term>
+					<listitem>
+						<para>Any stretch of text that must appear in <literal>constant width</literal> font.</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<replaceable>&lt;replaceable&gt;</replaceable>
+					</term>
+					<listitem>
+						<para>Thext that should be replaced with user-supplied values or by values determined by context. Apperas in <replaceable>constant width italic</replaceable>.</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<subscript>&lt;subscript&gt;</subscript>
+					</term>
+					<listitem>
+						<para>A subscript character</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<superscript>&lt;superscript&gt;</superscript>
+					</term>
+					<listitem>
+						<para>A superscript character</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<link>&lt;link&gt;</link>
+					</term>
+					<listitem>
+						<para>Several types of links and various URL markup/rendering options are supported.  See <xref linkend="hyperlinks"/> for more details. (Note that these will become hyperlinks in online versions, so for fake or example URLs, use <literal>&lt;emphasis&gt;</literal> or <literal>&lt;uri&gt;</literal> instead.</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>
+						<userinput>&lt;userinput&gt;</userinput>
+					</term>
+					<listitem>
+						<para>Data entered by the user, typically at a prompt line. Use with <literal>replaceable</literal> if needed: <userinput>&lt;userinput&gt;&lt;replaceable&gt;&lt;userinput&gt;</userinput></para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+
+		</section>
+		<section>
+			<title>Figures</title>
+		</section>
+		<section>
+			<title>Tables</title>
+		</section>
+		<section>
+			<title>Lists</title>
+		</section>
+		<section>
+			<title>Notes, Warnings, and Sidebars</title>
+			<note>
+				<para>By using the monitor function, enabled from the 
+					<keycap>&#x25b2;<alt>up</alt></keycap>
+					or
+					<keycap>&#x25bc;<alt>down</alt></keycap>
+					<inlinemediaobject>
+						<imageobject>
+							<imagedata contentdepth="0.9em" format="png" fileref="figs/key-star.svg.png"/>
+						</imageobject>
+						<alt>Star</alt>
+					</inlinemediaobject>,
+					key below the PTT, you can more easily adjust your volume by adjusting it to the un-squelched static.</para>
+			</note>
+		</section>
+		<section>
+			<title>Hyperlinks</title>
+		</section>
+		<section>
+			<title>Footnotes</title>
+		</section>
+		<section>
+			<title>Index Tags</title>
+		</section>
+	</section>
+	<section>
+		<title>Expressing Code in DocBook</title>
+		<section>
+			<title>Examples and programlistings</title>
+			<programlisting language="c">
+				bool set_context(sds json)
+				{
+					int err, ctx_size = sizeof(ctx) / sizeof(ctx[0]);
+					if ((err = parse_json(json, strlen(json), ctx, ctx_size)) > 0) {
+						return true;
+					} else {
+						switch (err) {
+							case JSON_STRING_INVALID:
+								fputs("JSON string invalid", stderr);
+								break;
+							case JSON_STRING_INCOMPLETE:
+								fputs("JSON string incomplete", stderr);
+								break;
+							case JSON_TOKEN_ARRAY_TOO_SMALL:
+								fputs("Token array too small", stderr);
+								break;
+						}
+						return false;
+					}
+				}
+			</programlisting>
+		</section>
+		<section>
+			<title>Caveats about verbatim environments</title>
+		</section>
+		<section>
+			<title>Annotating your code</title>
+		</section>
+		<section>
+			<title>Syntax Highlighting</title>
+		</section>
+	</section>
+	<section>
+		<title>Unicode for Special Characters</title>
+		<para>For special or nonstandard keyboard characters, use Unicode. The following table provides the values for some common characters; for all others, use the <link xlink:href="http://www.fileformat.info/info/unicode/char/search.htm">Unicode Character Search</link> (but keep in mind that we may not have fonts for more exotic characters; send an email to toolseq@oreilly.com if you have questions). If you're using XMLmind with the ORM XXE Customizations file, most of these characters have shortcuts, and others are available via the Characters panel.</para>
+		<para>To add a Unicode character directly to XML in a text editor, use the entity <literal>&amp;#x<replaceable>CODEPOINT</replaceable>;</literal>, where <replaceable>CODEPOINT</replaceable> is the four-digit hexadecimal number after U+ (e.g. for U+20A0, enter <literal>&amp;#x20A0;</literal>). LEtters that are part of the codepoint may be entered as either upper- or lowercase (i.e. <literal>&amp;#x03bb;</literal> is the same as <literal>&amp;#x03BB;</literal>), but the x between the # symbol and the codepoint must be lowercase.
+			<informaltable>
+				<tgroup cols="2">
+					<thead>
+						<row>
+							<entry>Character</entry>
+							<entry>Unicode value (hexadecimal codepoint)</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>&#x2014; (Em Dash)</entry>
+							<entry>U+2014</entry>
+						</row>
+						<row>
+							<entry>&#x2013; (En Dash)</entry>
+							<entry>U+2013</entry>
+						</row>
+						<row>
+							<entry>&#x201C; (Curly Left Double Quotation Mark)</entry>
+							<entry>U+201C</entry>
+						</row>
+						<row>
+							<entry>&#x201D; (Curly Right Double Quotation Mark)</entry>
+							<entry>U+201D</entry>
+						</row>
+						<row>
+							<entry>&#x2018; (Curly Left Single Quotation Mark)</entry>
+							<entry>U+2018</entry>
+						</row>
+						<row>
+							<entry>&#x2019; (Curly Right Single Quotation Mark)</entry>
+							<entry>U+2019</entry>
+						</row>
+						<row>
+							<entry>&#x00D7; (MathMultiplier)</entry>
+							<entry>U+00D7</entry>
+						</row>
+						<row>
+							<entry>&#x2192; (CharMenuDelim)</entry>
+							<entry>U+2192</entry>
+						</row>
+						<row>
+							<entry>&#x20A0; (Euro Currency Symbol)</entry>
+							<entry>U+20A0</entry>
+						</row>
+						<row>
+							<entry>&#x2713; (Check mark)</entry>
+							<entry>U+2713</entry>
+						</row>
+						<row>
+							<entry>&#x2717; (Ballot X)</entry>
+							<entry>U+2717</entry>
+						</row>
+						<row>
+							<entry>&#x2318; (Place Of Interest Sign)</entry>
+							<entry>U+2318</entry>
+						</row>
+						<row>
+							<entry>&#x21B5; (Carriage Return Arrow)</entry>
+							<entry>U+21B5</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+		</para>
+
+	</section>
+	<section>
+		<title>Adding comments to your manuscript</title>
+	</section>
 </chapter>
--->

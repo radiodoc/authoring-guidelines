@@ -1,0 +1,25 @@
+<chapter xmlns="http://docbook.org/ns/docbook" 
+         version="5.0" 
+         xmlns:xlink="http://www.w3.org/1999/xlink" 
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xml:id="picking-an-editor">
+	<title>Picking an XML Editor</title>
+	<section xml:id="which-editor-to-use">
+		<title>Which XML Editor Should I Use?</title>
+		<para>You can use whatever tool you like to write in DocBook XML; a fairly complete list of authoring tools is available on the <link xlink:href="http://wiki.docbook.org/topic/DocBookAuthoringTools">DocBook wiki</link>.  The editors best suited for you depends on your background and personal preferences.  Some authors prefer the word processing-type of experience found in an editor like XMLmind while others are more comfortable working directly in the markup using a text editor like vi or Emacs.  The O'Reilly Tools and Production staff work with some combination of the following tools:</para>
+		<variablelist>
+			<varlistentry>
+				<term><link xlink:href="">oXygen XML Author</link></term>
+				<listitem>
+					<para></para>
+				</listitem>	
+			</varlistentry>
+		</variablelist>
+		<para>The choice of editor is yours, but we urge you to use an XML editor that will help you maintain valid DocBook 5.0 as you go. Validation is not difficult see  <xref linkend="validating"/>.  Please keep in mind that invalid documents will not be accepted into production.</para>
+	</section>
+	<section xml:id="wysiwyg">
+		<title>Will What I See in the XML Editor Mirror the PDF?  Other Electronic Formats?</title>
+		<para>DocBook markup specifies the structure of your document, but not the appearance.  DocBook isn't a WYSIWYG format, so it will display differently in your XML editor than it will after rendering to PDF and other formats downstream.  This not only means that fonts and formatting will display differently, but line breaks may differ as well.</para>
+		<para>The O'Reilly toolchain that transforms your DocBook into its final form (both print and downstream electronic formats) rely on semantic XML tags that you apply to the elements of your text.  For PDFs, those tags are processed in combination with customized XSL-FO stylesheets and an open source FO to PDF processor to render your content into a PDF. (The XSL-FO stylesheets are similar to a CSS stylesheet for HTML, in that they set up how each element and attribute and your book will look when rendered as a PDF.) <xref linkend="triggering-builds"/> for more information.  Downstream digital channels *such as safari books online and oreilly.com use the XML tags analogously (but via different toolchains) to transform or render your content for their own presentation formats.</para>
+	</section>
+</chapter>
