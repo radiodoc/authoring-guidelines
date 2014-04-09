@@ -4,29 +4,92 @@
          xmlns:svg="http://www.w3.org/2000/svg"
          xml:id="docbook-guidelines">
 	<title>DocBook 5 XML Markup Guidelines</title>
+	<para>Here are some general markup guidelines and instructions that you may find helpful while writing your manuscript in DocBook.  If you have any questions about what markup to use for a particular element, or whether our toolchain supports a specific type of markup, please contact toolsreq@oreilly.com.</para>
 	<section>
 		<title>Keep it simple</title>
+		<para>"Keep it simple" sounds a bit silly when referring to something as complex as DoCBook, but the point here is that even though DocBook offers over 400 elements, you'll likely need only a fraction of them. For example, you can safely stay away from the <literal>confsponsor</literal>, <literal>msgsub</literal> and <literal>seriesvolnums</literal> elements.  DocBook is meant to be comprehensive across a universe of technical documentation.  We're only dealing with a subset: content meant for expression in an O'Reilly title.  Practiaclly speaking, you'll mostlu use elements very similar to the standard HTML elements, like <literal>itemizedlist</literal> and <literal>table</literal>.</para>
+		<para><xref>common elements</xref> covers some of the commonly used DocBook elements in O'Reilly books.</para>
+		<sidebar>
+			<title>Can I CHange the Appearance of Elements in My Book?</title>
+			<para>We have developed our series stulesheets according to O'Reilly house style and the design standards for each series.  If something isn't showing up as you'd expect in your PDF, or if you want to know if it's feasible to make a cistomization (after consulting with your editor on house style), please contact <email>toolsreq@orielly.com</email>.</para>
+		</sidebar>
 		<section>
 			<title>Using Elements Correctly</title>
+			<para>For XML to be valid, it must not only be well-formed *which means that all the start and end tags match), but also must have all the tags in the proper hierarchy according to the associated DTD (in our case, the DocBook 5.0  DTD).  The tag at the top of the hierarchy is called the root element.  For a book, <literal>&lt;book&gt;</literal> would be your root element, which would contain <literal>&lt;part&gt;</literal> or <literal>&lt;chapter&gt;</literal> children, for example.  Tags like <literal>&lt;chapter&gt;</literal> must be nested within <literal>&lt;book&gt;</literal>, and a <literal>&lt;sect3&gt;</literal> cannot be directly nested within a <literal>&lt;sect1&gt;</literal>; it would have to be within a <literal>&lt;sect2&gt;</literal>.  Reserved tags or improper nesting will return invalid DocBook files.</para>
+			<note>
+				<para>Once nice feature of using an XML editor such as XXE is that it will not allow you to move, delete, or add elements in a way that doesn't follow the DTD hierarchy.</para>
+			</note>
+			<sidebar>
+				<title>Tag Versus Element</title>
+				<para>The words "tag" and "element" are sometimes used interchangeably, but there is a distinction.  For example, <literal>&lt;chapter&gt;</literal> is a tag that indicates the start of a <literal>chapter</literal> element. For the XML document to be well-formed, it must contain an end tag, <literal>&lt;/chapter&gt;</literal>.</para>
+				<para>Some tags are self-contained and stand alone as complete elements, without the need for separate end tags.  For example, <literal>&lt;xref linkend="foo" /&gt;</literal> is a self-contained tag&#x2014;note the <literal>/&gt;</literal> marker that closes it.</para>
+			</sidebar>
 		</section>
 		<section>
 			<title>Sample Markup and PDFs</title>
+			<para>This document uses the same DocBook markup as our books, so you can use it as a model for your own manuscript. <xref>common elements</xref> provides a close look at some of the more frequently used elements in O'Reilly books.  In addition, please check out some book samples we have posted, which are available at the URL below.  Note that we often put a README (text) file in each directory to give you a bit of guidance on what is where, and generally it's  best to take a look at the PDF version for additional commentary before delving into the XML.</para>
+			<link xlink:href="https:/github.com/radiodoc/docbook-sample/"/>
+			<note>
+				<para>If the tools team has already given you SVN credentials (mentioned in "Using an O'Reilly SVN repository"), you should use those instead of guest so that your browser/client doesn't cache guest and later prevent you from accessing your own repo.</para>
+			</note>
+			<para>The samples directory contains the following skeleton files, if you need them:
+				<itemizedlist>
+					<listitem>
+						<para>afterword.xml</para>
+					</listitem>		
+					<listitem>
+						<para>appa.xml</para>
+					</listitem>		
+					<listitem>
+						<para>book.xml</para>
+					</listitem>		
+					<listitem>
+						<para>ch01.xml</para>
+					</listitem>		
+					<listitem>
+						<para>dedication.xml</para>
+					</listitem>		
+					<listitem>
+						<para>foreword.xml</para>
+					</listitem>		
+					<listitem>
+						<para>part1.xml</para>
+					</listitem>		
+					<listitem>
+						<para>preface.xml</para>
+					</listitem>		
+				</itemizedlist>
+				please contact toolsreq@oreilly.com if you have any questions about using these files.</para>
+				<para>The samples directory also contains guidelines for using more complex markup, including:
+					<itemizedlist>
+						<listitem>
+							<para>RefEntry markup/rendering</para>
+						</listitem>
+					</itemizedlist>
+				</para>
+				<sidebar>
+					<title>The Elements in My PDFs Don't Look Like the Ones in this Document.</title>
+					<para>The rendered version of this document is an example of I'Reillu's Animal Guide series template, you may be working in a different series, such as Theory of practise, nutshell, cookbook, or pocket referecne</para>
+				</sidebar>
 		</section>
 	</section>
 	<section>
 		<title>Organising your files</title>
+		<para></para>
 		<section>
 			<title>Adding Chapters to the Book</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Dividing the Book into Parts</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Adding a Foreword and/or an Afterword</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Using sections</title>
-			<title>Second level</title>
 			<para>This is a second level section</para>
 			<section>
 				<title>Third level</title>
@@ -49,12 +112,15 @@
 		</section>
 		<section>
 			<title>Creating cross-references</title>
+			<para></para>
 		</section>
 	</section>
 	<section>
 		<title>Common Elements</title>
+		<para></para>
 		<section>
 			<title>Block Elements Versus Inline Elements</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Inline Font Markup</title>
@@ -177,15 +243,19 @@
 		</section>
 		<section>
 			<title>Figures</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Tables</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Lists</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Notes, Warnings, and Sidebars</title>
+			<para></para>
 			<note>
 				<para>By using the monitor function, enabled from the 
 					<keycap>&#x25b2;<alt>up</alt></keycap>
@@ -195,23 +265,29 @@
 						<imageobject>
 							<imagedata contentdepth="0.9em" format="png" fileref="figs/key-star.svg.png"/>
 						</imageobject>
-						<alt>Star</alt>
+						<textobject>
+							<phrase>Star</phrase>
+						</textobject>
 					</inlinemediaobject>,
 					key below the PTT, you can more easily adjust your volume by adjusting it to the un-squelched static.</para>
 			</note>
 		</section>
 		<section>
 			<title>Hyperlinks</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Footnotes</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Index Tags</title>
+			<para></para>
 		</section>
 	</section>
 	<section>
 		<title>Expressing Code in DocBook</title>
+		<para></para>
 		<section>
 			<title>Examples and programlistings</title>
 			<programlisting language="c">
@@ -239,12 +315,15 @@
 		</section>
 		<section>
 			<title>Caveats about verbatim environments</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Annotating your code</title>
+			<para></para>
 		</section>
 		<section>
 			<title>Syntax Highlighting</title>
+			<para></para>
 		</section>
 	</section>
 	<section>
@@ -320,5 +399,6 @@
 	</section>
 	<section>
 		<title>Adding comments to your manuscript</title>
+		<para></para>
 	</section>
 </chapter>

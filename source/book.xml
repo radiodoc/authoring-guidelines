@@ -5,16 +5,15 @@
       xmlns:xi="http://www.w3.org/2001/XInclude"
       version="5.0" xml:id="authoring-guidelines">
 	<title>Authoring Guidelines</title>
-	<subtitle>The Radio Documentation Project</subtitle>
-	<subtitle><link xlink:href="http://radiodoc.github.com/"/></subtitle>
-
+	<subtitle>
+		<link xlink:href="http://radiodoc.github.com/">
+			The Radio Documentation Project
+		</link>
+	</subtitle>
 	<info>
 		<authorgroup>
 			<author>
-				<orgname>
-					<firstname>Lennart</firstname>
-					<surname>Lidberg</surname>
-				</orgname>
+				<orgname>The Radio Documentation Project</orgname>
 			</author>
 		</authorgroup>
 
@@ -26,7 +25,7 @@
 		</editor>
 		<copyright>
 			<year>2014</year>
-			<holder>Lennart Lidberg</holder>
+			<holder>The Radio Documentation Project</holder>
 		</copyright>
 
 		<xi:include href="legalnotice.xml"/>
