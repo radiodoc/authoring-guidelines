@@ -1,0 +1,8 @@
+	<!ENTITY ndash  "&#x2013;"> <!-- en dash, U+2013 ISOpub -->
+	<!ENTITY mdash  "&#x2014;"> <!-- em dash, U+2014 ISOpub -->
+	<!ENTITY lsquo  "&#x2018;"> <!-- left single quotation mark, U+2018 ISOnum -->
+	<!ENTITY rsquo  "&#x2019;"> <!-- right single quotation mark, U+2019 ISOnum -->
+	<!ENTITY hellip "&#x2026;"> <!-- Horizontal ellipsis, U+2026 ISOnum -->
+	<!ENTITY sbquo  "&#x201A;"> <!-- single low-9 quotation mark, U+201A NEW -->
+	<!ENTITY ldquo  "&#x201C;"> <!-- left double quotation mark, U+201C ISOnum -->
+	<!ENTITY rdquo  "&#x201D;"> <!-- right double quotation mark, U+201D ISOnum -->

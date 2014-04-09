@@ -1,5 +1,8 @@
-<chapter xmlns="http://docbook.org/ns/docbook" 
-         version="5.0" 
+<!DOCTYPE chapter [
+	<!ENTITY % type SYSTEM "type.xml">
+	%type;
+]>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" 
          xmlns:xlink="http://www.w3.org/1999/xlink" 
          xmlns:svg="http://www.w3.org/2000/svg"
          xml:id="docbook-guidelines">
@@ -32,7 +35,7 @@
 			<note>
 				<para>If the tools team has already given you SVN credentials (mentioned in "Using an O'Reilly SVN repository"), you should use those instead of guest so that your browser/client doesn't cache guest and later prevent you from accessing your own repo.</para>
 			</note>
-			<para>The samples directory contains the following skeleton files, if you need them:
+			<para>The samples directory contains the following skeleton files, if you need them:</para>
 				<itemizedlist>
 					<listitem>
 						<para>afterword.xml</para>
@@ -59,30 +62,51 @@
 						<para>preface.xml</para>
 					</listitem>		
 				</itemizedlist>
-				please contact toolsreq@oreilly.com if you have any questions about using these files.</para>
-				<para>The samples directory also contains guidelines for using more complex markup, including:
-					<itemizedlist>
-						<listitem>
-							<para>RefEntry markup/rendering</para>
-						</listitem>
-					</itemizedlist>
-				</para>
-				<sidebar>
-					<title>The Elements in My PDFs Don't Look Like the Ones in this Document.</title>
-					<para>The rendered version of this document is an example of I'Reillu's Animal Guide series template, you may be working in a different series, such as Theory of practise, nutshell, cookbook, or pocket referecne</para>
-				</sidebar>
+			<para>please contact toolsreq@oreilly.com if you have any questions about using these files.</para>
+			<para>The samples directory also contains guidelines for using more complex markup, including:</para>
+			<itemizedlist>
+				<listitem>
+					<para>RefEntry markup/rendering</para>
+				</listitem>
+			</itemizedlist>
+			<sidebar>
+				<title>The Elements in My PDFs Don't Look Like the Ones in this Document.</title>
+				<para>The rendered version of this document is an example of I'Reillu's Animal Guide series template, you may be working in a different series, such as Theory of practise, nutshell, cookbook, or pocket referecne</para>
+			</sidebar>
 		</section>
 	</section>
 	<section>
 		<title>Organising your files</title>
-		<para></para>
+		<para>As you will see in the book.xml file, that O'Reilly provides for you, the book file contains just the book metadata and no actual content.  Each chapter is its own full DocBook document with its own <literal>DOCTYPE</literal> declaration, which makes validation easier.</para>
+		<note>
+			<para>This section discusses the files as we structure and name them once they are submitted to Production.  But when you are working on them, you can structure and name them in any way that's convenient for you.  All that matters is that you have a valid book.xml&mdash;whether it's a monolithic file you edit directly, generate from a custom Makefile, etc.</para>
+		</note>
+		<para>Once you check out the template files from your SVN repository (<xref>docbook and subversion</xref>), you can open the ch01.xml file and begin typing your first paragraph.  The basic DOCTYPE  and other metadata will already be in the book.xml for you, so you can concentrate more on writing your book and less on XML markup.</para>
 		<section>
 			<title>Adding Chapters to the Book</title>
-			<para></para>
+			<para>The <filename>book.xml</filename> file includes information pertaning to chich files compromise the book and the order in which they should appear:</para>
+			<programlisting>
+				&lt;?xml version="1.0"&gt;
+				&lt;!DOCTYPE book&gt;
+				&lt;book&gt;
+				&lt;title&gt;Wikipedia:  The missing manual&lt;/title&gt;
+				&lt;xi:include href="bookinfo.xml" /&gt;
+				&lt;xi:include href="ch00.xml" /&gt;
+				&lt;xi:include href="ch01.xml" /&gt;
+				&lt;!-- The rest of the chapter files are listed here --&gt;
+				&lt;xi:include href="ch21.xml" /&gt;
+				&lt;xi:include href="appa.xml" /&gt;
+				&lt;xi:include href="appb.xml" /&gt;
+				&lt;xi:include href="appc.xml" /&gt;
+				&lt;/book&gt;
+			</programlisting>
+			<para>After you complete your first chapter and save it, you can create a new file Chapter 2, modelled on your Chapter 1 file.  Name your new chapter&mdash;ch02.xml is O'Reilly's naming convention&mdash;and then reference and include this chapter in the book.xml file that is your book directory, using an XInclude as follows:</para>
+			<programlisting></programlisting>
 		</section>
 		<section>
 			<title>Dividing the Book into Parts</title>
-			<para></para>
+			<para>If you want to group your chapters into parts, grab a skeleton part file here:</para>
+			<para>Then add your chapters to the appropriate partN.cml file instead of the book.xml file.</para>
 		</section>
 		<section>
 			<title>Adding a Foreword and/or an Afterword</title>
@@ -90,37 +114,165 @@
 		</section>
 		<section>
 			<title>Using sections</title>
-			<para>This is a second level section</para>
+			<para>Just as the book is made up of chapters, each chapter is made up of sections (though chapter files do not necessarilly use XIncludes).  Please use <literal>section</literal> elements rather than <literal>sect1</literal>, <literal>sect2</literal> and <literal>sect3</literal> elements, to structure your chapter.  Typically the first two levels will appeaer in the ToC.</para>
+			<para>The basic chapter structure looks something like this:</para>
+			<programlisting>
+				&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+				&lt;!DOCTYPE chapter&gt;
+				&lt;chapter xmlns="http://docbook.org/ns/docbook" version="5.0" 
+				         xmlns:xlink="http://www.w3.org/1999/xlink" 
+				         xmlns:svg="http://www.w3.org/2000/svg"
+				         xml:id="chapter-id"&gt;
+					&lt;title&gt;Chapter title here&lt;/title&gt;
+					&lt;section xml:id="section-id"&gt;
+						&lt;title&gt;Sect1 title here&lt;/title&gt;
+						&lt;para&gt;Text goes here...&lt;/para&gt;
+						&lt;section xml:id="section-id"&gt;
+							&lt;title&gt;Sect2 title here&lt;/title&gt;
+							&lt;para&gt;Text goes here...&lt;/para&gt;
+							&lt;section xml:id="section-id"&gt;
+								&lt;title&gt;Sect2 title here&lt;/title&gt;
+								&lt;para&gt;Text goes here...&lt;/para&gt;
+							&lt;/section&gt;
+						&lt;/section&gt;
+					&lt;/section&gt;
+				&lt;/chapter&gt;
+			</programlisting>
+			<para>note the <literal>para</literal>s between sections.  Per O'Reilly house style, we ask that you don't add a section directly after the previous section's title with no <literal>para</literal> or other element in between (though doing so isn't invalid). In other words, don't do this:</para>
+			<programlisting>
+				&lt;section xml:id="section-id"&gt;
+					&lt;title&gt;Sect1 title here&lt;/title&gt;
+					&lt;section xml:id="section-id"&gt;
+						&lt;title&gt;Sect2 title here&lt;/title&gt;
+						&lt;para&gt;Text goes here...&lt;/para&gt;
+					&lt;/section&gt;
+				&lt;/section&gt;
+			</programlisting>
+			<note>
+				<para>For a complete list of O'Reilly's style conventions, including proper heading and title capitalization, consult the O'Reilly Stylesheet and Word list.  Also keep in mind that except in code listings, there should be no blank or empty lines in your XML documents.</para>
+			</note>
 			<section>
-				<title>Third level</title>
-				<para>This is a third level section</para>
+				<title>Fourth level sections</title>
+				<para>You may also use a fourth level (<literal>sect4</literal> equivalent) section, although these are much less common in O'Reilly books.  The title renders inline, with an autogenerated period following it, rather than as a separate heading.</para>
+				<para>Here's how it renders:</para>
 				<section>
-					<title>Fourth level</title>
-					<para>This is a fourth level section</para>
-					<section>
-						<title>Fifth level</title>
-						<para>This is a fifth level section</para>
-						<section>
-							<title>Sixth level</title>
-							<para>This is a sixth level section</para>
-						</section>
-					</section>
+					<title>Example of fourth level section</title>
+					<para>This is a paragraph inside a fourth level section.</para>
 				</section>
 			</section>
-<!--
--->
 		</section>
 		<section>
 			<title>Creating cross-references</title>
-			<para></para>
+			<para>All references to titled block elements and book components&mdash;figures, tables, examples, sections, chapters, parts, etc.&mdash;should be marked up as <literal>xref</literal>sm not entered as plain text. <literal>xref</literal> markup will become a live hyperlink to the target in online versions, and will automatically update if you move numbered elements (figures, chapters, etc.) around while editing.  To insert an <literal>xref</literal> follow these steps:</para>
+			<procedure>
+				<step>
+					<para>Note the <literal>xml:id</literal> of the element you are referencing.  If the element does not have an <literal>xml:id</literal>, you will need to add one.  For the book to be valid, <literal>xml:id</literal> attributes must be unique across the entire book, have no spaces, and not start with a number.  For example, a figure <literal>xml:id</literal> looks like this:
+					<programlisting>
+						&lt;figure xml:id="foo"&gt;
+					</programlisting></para>
+				</step>
+				<step>
+					<para>Once you have the <literal>xml:id</literal>, you can insert an <literal>xref</literal> element that references it via a <literal>linkend</literal> attribute, like so:
+					<programlisting>
+						&lt;xref linkend="foo" /&gt;
+					</programlisting></para>
+				</step>
+			</procedure>
+			<note>
+				<para>You cannot use the word "inherit" as an <literal>xml:id</literal>.  It won't render properly in the PDF.</para>
+			</note>
+			<para>The following table shows examples of <tag>xref</tag> markup and rendering for various elements.</para>
+			<informaltable>
+				<tgroup cols="3">
+					<thead>
+						<row>
+							<entry>Element to be referenced</entry>
+							<entry>xref markup</entry>
+							<entry>xref rendering</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry>&lt;section xml:id="keep-it-simple"&gt;</entry>
+							<entry>&lt;xref linkend="keep-it-simple" /&gt;</entry>
+							<entry>"Keep it Simple" on page 17</entry>
+						</row>
+						<row>
+							<entry>&lt;chapter xml:id="setting-up-your-xml-files"&gt;</entry>
+							<entry>&lt;xref linkend="setting-up-your-xml-files" /&gt;</entry>
+							<entry>Chapter 2</entry>
+						</row>
+						<row>
+							<entry>&lt;figure xml:id="svn-work-flow"&gt;</entry>
+							<entry>&lt;xref linkend="svn-work-flow" /&gt;</entry>
+							<entry>Figure 2-1</entry>
+						</row>
+						<row>
+							<entry>&lt;example xml:id="sample-example"&gt;</entry>
+							<entry>&lt;xref linkend="sample-example" /&gt;</entry>
+							<entry>Example 3-3</entry>
+						</row>
+						<row>
+							<entry>&lt;table xml:id="maximum-widths"&gt;</entry>
+							<entry>&lt;xref linkend="maximum-widths" /&gt;</entry>
+							<entry>Table 3-1</entry>
+						</row>
+					</tbody>
+				</tgroup>
+			</informaltable>
+			<para>Note that cross-references to terms in a <filename>glossary.xml</filename> use special markup, not <tag>xref</tag>.  See the <filename>/samples/glossary</filename> dir for details.</para>
+			<note>
+				<para>Do not hardcode titles, labels, or page numbers.  All of these elements of the rendered <tag>xref</tag> are autogenerated: if you move the referenced section to another place in the book or reword a title, the cross-ref will automatically update.</para>
+			</note>
 		</section>
 	</section>
 	<section>
 		<title>Common Elements</title>
-		<para></para>
+		<para>The following sections describe and provide examples of common DocBook elements in O'Reilly books.  As mentioned earlier, additional markup samples are available here:</para>
 		<section>
 			<title>Block Elements Versus Inline Elements</title>
-			<para></para>
+			<para>At the paragraph-level, there are two types of elements:</para>
+			<variablelist>
+				<varlistentry>
+					<term>Block elements</term>
+					<listitem>
+						<para>Usually presented with a paragraph break before and after them.  Block elements may contain character data, inline elements, and possibly other block elements.  Examples include paragraphs, lists, sidebars, and block quotations.</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry>
+					<term>Inline elements</term>
+					<listitem>
+						<para>Usually distinguished by a font change rather than obvious breaks.  Inline elements may contain character data and possibly other inline elements, but never block elements.  Examples include cross-references, filenames, commands, and URLs.</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			<sidebar>
+				<title>Avoid Putting Block Elements in &lt;para&gt;s</title>
+				<para>To prevent spacing problems in rendering downstream, we'd prefer that you don't put any blck elements within <literal>para</literal>s.  In other words, block elements should come <emphasis>after</emphasis> the closing <literal>&lt;/para&gt;</literal> tag, not be nested within <literal>&lt;para&gt;</literal> tags.  Some of the block elements that we'd like to avoid in <literal>para</literal>s are the following:</para>
+				<simplelist>
+					<member><tag>blockquote</tag></member>
+					<member><tag>calloutlist</tag></member>
+					<member><tag>example</tag></member>
+					<member><tag>figure</tag></member>
+					<member><tag>glosslist</tag></member>
+					<member><tag>informalequation</tag></member>
+					<member><tag>informalexample</tag></member>
+					<member><tag>informalfigure</tag></member>
+					<member><tag>informaltable</tag></member>
+					<member><tag>itemizedlist</tag></member>
+					<member><tag>literallayout</tag></member>
+					<member><tag>mediaobject</tag></member>
+					<member><tag>note</tag></member>
+					<member><tag>orderedlist</tag></member>
+					<member><tag>programlisting</tag></member>
+					<member><tag>screen</tag></member>
+					<member><tag>sidebar</tag></member>
+					<member><tag>simplelist</tag></member>
+					<member><tag>table</tag></member>
+					<member><tag>variablelist</tag></member>
+					<member><tag>warning</tag></member>
+				</simplelist>
+			</sidebar>
 		</section>
 		<section>
 			<title>Inline Font Markup</title>
@@ -329,76 +481,87 @@
 	<section>
 		<title>Unicode for Special Characters</title>
 		<para>For special or nonstandard keyboard characters, use Unicode. The following table provides the values for some common characters; for all others, use the <link xlink:href="http://www.fileformat.info/info/unicode/char/search.htm">Unicode Character Search</link> (but keep in mind that we may not have fonts for more exotic characters; send an email to toolseq@oreilly.com if you have questions). If you're using XMLmind with the ORM XXE Customizations file, most of these characters have shortcuts, and others are available via the Characters panel.</para>
-		<para>To add a Unicode character directly to XML in a text editor, use the entity <literal>&amp;#x<replaceable>CODEPOINT</replaceable>;</literal>, where <replaceable>CODEPOINT</replaceable> is the four-digit hexadecimal number after U+ (e.g. for U+20A0, enter <literal>&amp;#x20A0;</literal>). LEtters that are part of the codepoint may be entered as either upper- or lowercase (i.e. <literal>&amp;#x03bb;</literal> is the same as <literal>&amp;#x03BB;</literal>), but the x between the # symbol and the codepoint must be lowercase.
-			<informaltable>
-				<tgroup cols="2">
-					<thead>
-						<row>
-							<entry>Character</entry>
-							<entry>Unicode value (hexadecimal codepoint)</entry>
-						</row>
-					</thead>
-					<tbody>
-						<row>
-							<entry>&#x2014; (Em Dash)</entry>
-							<entry>U+2014</entry>
-						</row>
-						<row>
-							<entry>&#x2013; (En Dash)</entry>
-							<entry>U+2013</entry>
-						</row>
-						<row>
-							<entry>&#x201C; (Curly Left Double Quotation Mark)</entry>
-							<entry>U+201C</entry>
-						</row>
-						<row>
-							<entry>&#x201D; (Curly Right Double Quotation Mark)</entry>
-							<entry>U+201D</entry>
-						</row>
-						<row>
-							<entry>&#x2018; (Curly Left Single Quotation Mark)</entry>
-							<entry>U+2018</entry>
-						</row>
-						<row>
-							<entry>&#x2019; (Curly Right Single Quotation Mark)</entry>
-							<entry>U+2019</entry>
-						</row>
-						<row>
-							<entry>&#x00D7; (MathMultiplier)</entry>
-							<entry>U+00D7</entry>
-						</row>
-						<row>
-							<entry>&#x2192; (CharMenuDelim)</entry>
-							<entry>U+2192</entry>
-						</row>
-						<row>
-							<entry>&#x20A0; (Euro Currency Symbol)</entry>
-							<entry>U+20A0</entry>
-						</row>
-						<row>
-							<entry>&#x2713; (Check mark)</entry>
-							<entry>U+2713</entry>
-						</row>
-						<row>
-							<entry>&#x2717; (Ballot X)</entry>
-							<entry>U+2717</entry>
-						</row>
-						<row>
-							<entry>&#x2318; (Place Of Interest Sign)</entry>
-							<entry>U+2318</entry>
-						</row>
-						<row>
-							<entry>&#x21B5; (Carriage Return Arrow)</entry>
-							<entry>U+21B5</entry>
-						</row>
-					</tbody>
-				</tgroup>
-			</informaltable>
-		</para>
-
+		<para>To add a Unicode character directly to XML in a text editor, use the entity <literal>&amp;#x<replaceable>CODEPOINT</replaceable>;</literal>, where <replaceable>CODEPOINT</replaceable> is the four-digit hexadecimal number after U+ (e.g. for U+20A0, enter <literal>&amp;#x20A0;</literal>). LEtters that are part of the codepoint may be entered as either upper- or lowercase (i.e. <literal>&amp;#x03bb;</literal> is the same as <literal>&amp;#x03BB;</literal>), but the x between the # symbol and the codepoint must be lowercase.</para>
+		<informaltable>
+			<tgroup cols="2">
+				<thead>
+					<row>
+						<entry>Character</entry>
+						<entry>Unicode value (hexadecimal codepoint)</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>&#x2014; (Em Dash)</entry>
+						<entry>U+2014</entry>
+					</row>
+					<row>
+						<entry>&#x2013; (En Dash)</entry>
+						<entry>U+2013</entry>
+					</row>
+					<row>
+						<entry>&#x201C; (Curly Left Double Quotation Mark)</entry>
+						<entry>U+201C</entry>
+					</row>
+					<row>
+						<entry>&#x201D; (Curly Right Double Quotation Mark)</entry>
+						<entry>U+201D</entry>
+					</row>
+					<row>
+						<entry>&#x2018; (Curly Left Single Quotation Mark)</entry>
+						<entry>U+2018</entry>
+					</row>
+					<row>
+						<entry>&#x2019; (Curly Right Single Quotation Mark)</entry>
+						<entry>U+2019</entry>
+					</row>
+					<row>
+						<entry>&#x00D7; (MathMultiplier)</entry>
+						<entry>U+00D7</entry>
+					</row>
+					<row>
+						<entry>&#x2192; (CharMenuDelim)</entry>
+						<entry>U+2192</entry>
+					</row>
+					<row>
+						<entry>&#x20A0; (Euro Currency Symbol)</entry>
+						<entry>U+20A0</entry>
+					</row>
+					<row>
+						<entry>&#x2713; (Check mark)</entry>
+						<entry>U+2713</entry>
+					</row>
+					<row>
+						<entry>&#x2717; (Ballot X)</entry>
+						<entry>U+2717</entry>
+					</row>
+					<row>
+						<entry>&#x2318; (Place Of Interest Sign)</entry>
+						<entry>U+2318</entry>
+					</row>
+					<row>
+						<entry>&#x21B5; (Carriage Return Arrow)</entry>
+						<entry>U+21B5</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</informaltable>
 	</section>
 	<section>
 		<title>Adding comments to your manuscript</title>
-		<para></para>
+		<para>You have two main options for adding comments to your manuscript: using standard XML comments (<!-- -->) and using the remark element.</para>
+		<para>XML comments are particularly useful for commenting out large blocks of text&mdash;for example, text that is under review, or text that you don't currently want to include in your manuscript. In the following example, the entire paragraph is commented out:</para>
+		<programlisting>
+			&lt;!-- O'Reilly's mission statement.
+			&lt;para&gt;O'Reilly  Media spreads the knowledge of innovators thorugh its books, online services, magazinesresearch, and conferences.  Since 1978, O'Reilly has been a chronicler and catalyst of leading-edge development, homing in on the technology trends that really matter and galvanizing their adoption by amplifying "faint signals" from the alpha geeks who are creating the future.  An active participant in the technolog community, the company has a long history of advocacy, meme-making and evangelism.&lt;/para&gt; --&gt;
+		</programlisting>
+		<para><literal>remark</literal> elements are typically used by authors to direct specific comments to the editor or Production, such as in the following:</para>
+		<programlisting>
+			&lt;remark&gt;PRODUCTION: Please stet grammatical errors in the following&lt;/remark&gt;
+
+			&lt;para&gt;I can haz cheezburger, plz?&lt;/para&gt;
+		</programlisting>
+		<para>if you have specific comments for Production staff, we would appreciate you formatting them as <literal>remark</literal> elements and starting them with "PRODUCTION", as done above.  This is very helpful in distinguishing comments that should be addressed during Production from other comments directed toward editorial staff or tech reviewers.</para>
+		<para>By default, comments are not rendered in your PDF builds.  <xref>displaying comments</xref> describes how to display them.</para>
 	</section>
 </chapter>
