@@ -86,19 +86,19 @@
 			<title>Adding Chapters to the Book</title>
 			<para>The <filename>book.xml</filename> file includes information pertaning to chich files compromise the book and the order in which they should appear:</para>
 			<programlisting>
-				&lt;?xml version="1.0"&gt;
-				&lt;!DOCTYPE book&gt;
-				&lt;book&gt;
-				&lt;title&gt;Wikipedia:  The missing manual&lt;/title&gt;
-				&lt;xi:include href="bookinfo.xml" /&gt;
-				&lt;xi:include href="ch00.xml" /&gt;
-				&lt;xi:include href="ch01.xml" /&gt;
-				&lt;!-- The rest of the chapter files are listed here --&gt;
-				&lt;xi:include href="ch21.xml" /&gt;
-				&lt;xi:include href="appa.xml" /&gt;
-				&lt;xi:include href="appb.xml" /&gt;
-				&lt;xi:include href="appc.xml" /&gt;
-				&lt;/book&gt;
+&lt;?xml version="1.0"&gt;
+&lt;!DOCTYPE book&gt;
+&lt;book&gt;
+&lt;title&gt;Wikipedia:  The missing manual&lt;/title&gt;
+&lt;xi:include href="bookinfo.xml" /&gt;
+&lt;xi:include href="ch00.xml" /&gt;
+&lt;xi:include href="ch01.xml" /&gt;
+&lt;!-- The rest of the chapter files are listed here --&gt;
+&lt;xi:include href="ch21.xml" /&gt;
+&lt;xi:include href="appa.xml" /&gt;
+&lt;xi:include href="appb.xml" /&gt;
+&lt;xi:include href="appc.xml" /&gt;
+&lt;/book&gt;
 			</programlisting>
 			<para>After you complete your first chapter and save it, you can create a new file Chapter 2, modelled on your Chapter 1 file.  Name your new chapter&mdash;ch02.xml is O'Reilly's naming convention&mdash;and then reference and include this chapter in the book.xml file that is your book directory, using an XInclude as follows:</para>
 			<programlisting></programlisting>
@@ -117,36 +117,36 @@
 			<para>Just as the book is made up of chapters, each chapter is made up of sections (though chapter files do not necessarilly use XIncludes).  Please use <literal>section</literal> elements rather than <literal>sect1</literal>, <literal>sect2</literal> and <literal>sect3</literal> elements, to structure your chapter.  Typically the first two levels will appeaer in the ToC.</para>
 			<para>The basic chapter structure looks something like this:</para>
 			<programlisting>
-				&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-				&lt;!DOCTYPE chapter&gt;
-				&lt;chapter xmlns="http://docbook.org/ns/docbook" version="5.0" 
-				         xmlns:xlink="http://www.w3.org/1999/xlink" 
-				         xmlns:svg="http://www.w3.org/2000/svg"
-				         xml:id="chapter-id"&gt;
-					&lt;title&gt;Chapter title here&lt;/title&gt;
-					&lt;section xml:id="section-id"&gt;
-						&lt;title&gt;Sect1 title here&lt;/title&gt;
-						&lt;para&gt;Text goes here...&lt;/para&gt;
-						&lt;section xml:id="section-id"&gt;
-							&lt;title&gt;Sect2 title here&lt;/title&gt;
-							&lt;para&gt;Text goes here...&lt;/para&gt;
-							&lt;section xml:id="section-id"&gt;
-								&lt;title&gt;Sect2 title here&lt;/title&gt;
-								&lt;para&gt;Text goes here...&lt;/para&gt;
-							&lt;/section&gt;
-						&lt;/section&gt;
-					&lt;/section&gt;
-				&lt;/chapter&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE chapter&gt;
+&lt;chapter xmlns="http://docbook.org/ns/docbook" version="5.0" 
+         xmlns:xlink="http://www.w3.org/1999/xlink" 
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xml:id="chapter-id"&gt;
+	&lt;title&gt;Chapter title here&lt;/title&gt;
+	&lt;section xml:id="section-id"&gt;
+		&lt;title&gt;Sect1 title here&lt;/title&gt;
+		&lt;para&gt;Text goes here...&lt;/para&gt;
+		&lt;section xml:id="section-id"&gt;
+			&lt;title&gt;Sect2 title here&lt;/title&gt;
+			&lt;para&gt;Text goes here...&lt;/para&gt;
+			&lt;section xml:id="section-id"&gt;
+				&lt;title&gt;Sect2 title here&lt;/title&gt;
+				&lt;para&gt;Text goes here...&lt;/para&gt;
+			&lt;/section&gt;
+		&lt;/section&gt;
+	&lt;/section&gt;
+&lt;/chapter&gt;
 			</programlisting>
 			<para>note the <literal>para</literal>s between sections.  Per O'Reilly house style, we ask that you don't add a section directly after the previous section's title with no <literal>para</literal> or other element in between (though doing so isn't invalid). In other words, don't do this:</para>
 			<programlisting>
-				&lt;section xml:id="section-id"&gt;
-					&lt;title&gt;Sect1 title here&lt;/title&gt;
-					&lt;section xml:id="section-id"&gt;
-						&lt;title&gt;Sect2 title here&lt;/title&gt;
-						&lt;para&gt;Text goes here...&lt;/para&gt;
-					&lt;/section&gt;
-				&lt;/section&gt;
+&lt;section xml:id="section-id"&gt;
+	&lt;title&gt;Sect1 title here&lt;/title&gt;
+	&lt;section xml:id="section-id"&gt;
+		&lt;title&gt;Sect2 title here&lt;/title&gt;
+		&lt;para&gt;Text goes here...&lt;/para&gt;
+	&lt;/section&gt;
+&lt;/section&gt;
 			</programlisting>
 			<note>
 				<para>For a complete list of O'Reilly's style conventions, including proper heading and title capitalization, consult the O'Reilly Stylesheet and Word list.  Also keep in mind that except in code listings, there should be no blank or empty lines in your XML documents.</para>
@@ -168,13 +168,13 @@
 				<step>
 					<para>Note the <literal>xml:id</literal> of the element you are referencing.  If the element does not have an <literal>xml:id</literal>, you will need to add one.  For the book to be valid, <literal>xml:id</literal> attributes must be unique across the entire book, have no spaces, and not start with a number.  For example, a figure <literal>xml:id</literal> looks like this:
 					<programlisting>
-						&lt;figure xml:id="foo"&gt;
+&lt;figure xml:id="foo"&gt;
 					</programlisting></para>
 				</step>
 				<step>
 					<para>Once you have the <literal>xml:id</literal>, you can insert an <literal>xref</literal> element that references it via a <literal>linkend</literal> attribute, like so:
 					<programlisting>
-						&lt;xref linkend="foo" /&gt;
+&lt;xref linkend="foo" /&gt;
 					</programlisting></para>
 				</step>
 			</procedure>
@@ -395,15 +395,205 @@
 		</section>
 		<section>
 			<title>Figures</title>
-			<para></para>
+			<para>Figures are similar to tables in that they can be iether formal or informal.  Formal figures have a title *aka caption), an autogenerated numeric label, and (per O'Reilly house style) an explicit cross-reference.  Note that you do not need to number the figure in the XML; the O'Reilly stylesheets autogenerate the number in the fugyre label and in all <tag>xref</tag>s to it.</para>
+			<note>
+				<para>Formal figures are more common in O'reilly books than informal figures.  Unless you have a special reason for using an unformal figure (e.g., if it's impractical for th eimage to have a title), you should use a formal figure.  <xref>accessibility</xref> for an example of informal figure markup.  It's essentially the same  as a <tag>figure</tag>, but without the <ltieral>xml:id</ltieral> attribute or <literal>title</literal> element.</para>
+			</note>
+			<para>Find more information on how to prepare the image files themselves in the O'Reilly Media Illustration Guidelines.</para>
+			<para>Here's an example of proper figure markup:</para>
+			<informlexample>
+				<programlisting>
+&lt;figure xml:id="docbook-duck-fig"&gt;
+	&lt;title&gt;The DocBook duck&lt;/title&gt;
+	&lt;mediaobject&gt;
+		&lt;imageobject&gt;
+			&lt;imagedata fileref="figs/docbook-duck.png" format="PNG"
+			           width="4.8in" /&gt;
+		&lt;/imageobject&gt;
+	&lt;/mediaobject&gt;
+&lt;/figure&gt;
+				</programlisting>
+			</informalexample>
+			<note>
+				<para>If you are working on files from an earlier edition of a book, you may see the more complex figure markup we use in Production (it includes a second <tag>imageobject</tag>, among other things).  For any new figures you add, you can stick with the simpler markup shown here.</para>
+			</note>
+			<para><xref>figure 3-1</xref> shows how the above markup renders.</para>
+			<!--
+			<figure xml:id="docbook-duck-fig">
+				<title>The DocBook duck</title>
+				<mediaobject>
+					<imageobject>
+						<imagedata fileref="figs/docbook-duck.png" format="PNG"
+						           width="4.8in" />
+					</imageobject>
+				</mediaobject>
+			</figure>			
+			-->
+			<para>The <literal>width</literal> attribute value in the <tag>imagedata</tag> is a quick way to make large images "fit" within the PDF page while you're writing the manuscript.  (Not that this is strictl optional, and for your own convenience;  it's not necessary for Production.)  <xref>scaling images</xref> next and <xref>inline graphics</xref> for more about image sizing.</para>
+			<para>Make sure to add your image files to the git repo (typically in the <filename>figs/</filename> directory).  Then set the fileref and format attributes in the XML markup so that they match the image file names and types exactly.  For example, if an image is named <filename>battery.png</filename> in the <filename>figs/</filename> directory, it should be referenced in tehXML as <filename>figs/battery.png</filename>, not <filename>figs/Battery.png</filename>, and the format should be <literal>PNG</literal>.</para>
+			<section>
+				<title>Scaling images</title>
+				<para>When your book goes into production, O'Reilly's illustration staff will handle processing the images you submit, including scaling them to the appropriate size.  However, for the purposes of generating draft PDF documents, you can scale your images using the <literal>width</literal> attribute of the <tag>imagedata</tag> element, which scales the images proportionally to the width value supplied.  For example, to set a width of 4.8 inches (the maximum width for Animal Guide Books), you'd add a <literal>width</literal> attribute value of <literal>4.8in</literal>.</para>
+				<para><xref>table 3.1</xref> contains a list of maximum widths you can use to scale images to fit your book's template.</para>
+				<!--
+				<table>
+					<title>Maximum widths for figures</title>
+				</table>
+				-->
+				<para>For more complete under-the-hood info, see sagehill/imagesizing</para>
+			</section>
+			<section>
+				<title>Inline graphics</title>
+				<para>If you need to add an inline graphic (e.g. a small icon that is part of the text), don't use <tag>figure</tag> or <tag>informalfigure</tag>; use an <tag>inlinemediaobject</tag>:</para>
+				<programlisting>
+&lt;inlinemediaobject&gt;
+	&lt;imageobject&gt;
+		&lt;imagedata fileref="figs/icon-0501.png" width="0.12in"/&gt;
+	&lt;/imageobject&gt;
+&lt;/inlinemediaobject&gt;
+				</programlisting>
+				<para>A <literal>width</literal> is required for an <tag>inlinemediaobject</tag> so that the processor knows how much space to allocate for it.  0.12in is a value that usually works well.  You can also ascertain the width of the graphic using a web browser, Adobe Acrobat, or any other program that shows you an image's dimensions.</para>
+				<para>Depending on the surrounding text, you may want to add a space before and after the <tag>inlinemediaobject</tag>.  For example, add spaces if the graphic falls between words, like "mumble <literal>ICON</literal> something," but not when it falls within punctuation, like "mumble (<literal>ICON</literal>) something."</para>
+			</section>
+			<section>
+				<title>ASCII art</title>
+				<para>ASCII art may be usable, but it does create ambuguities for Tools staff who perform an "intake" on your files when they come into Production, as well as for the illustrators.  Please see detailed guidelines and examples</para>
+			</section>
+			<section>
+				<title>Accessibility</title>
+				<para>O'Reilly is commited to making electronic formats of its books accessible to visially impaired readers.  EPUB versions of our titles contain alternative text descriptions for images (in the <literal>alt</literal> attribute of <tag>img</tag> elements) whenever possible.</para>
+				<para>By default, for formal <tag>figure</tag> elements, we use the contents of the <tag>title</tag> element as the <literal>alt</literal> text.  However, you can supply your own custom alt text for a <tag>figure</tag> by adding a <tag>textobject</tag> element as a child of the figure's <tag>mediaobject</tag>, and enclosing the <literal>alt</literal> text in a <tag>phrase</tag> element.  Here's an example of the markup to use (<xref>figure 3.2</xref> shows how it renders):</para>
+				<programlisting>
+<figure>
+	<title></title>
+	<mediaobject>
+		<imageobject>
+			<imagedata></imagedata>
+		</imageobject>
+		<textobject>
+			<phrase></phrase>
+		</textobject>
+	</mediaobject>
+</figure>
+				</programlisting>
+				<para>For images you include in your book that do not have <tag>title</tag> elements (e.g. <tag>informalfiigure</tag>s and <tag>inlinemediaobject</tag>s, we highly encourage you to supply your own custom <literal>alt</literal> text in <tag>textobject</tag>s.  (By default we use the text "image with no caption" as the <literal>alt</literal> text for <tag>informalfigures</tag> and leave <iteral>alt</iteral> attributes empty for <tag>inlinemediaobejct</tag>s.)  <xref>example 3-1</xref> show examples of the markup for an <tag>informalfigure</tag> and <tag>inlinemediaobject</tag> with custom <literal>alt</literal> text.</para>
+				<example>
+					<title>informalfigure with textobject</title>
+					<programlisting>
+<informalfigure>
+	<mediaobject>
+		<imageobject>
+			<imagedata></imagedata>
+		</imageobject>
+		<textobject>
+			<phrase></phrase>
+		</textobject>
+	</mediaobject>
+</informalfigure>
+					</programlisting>
+				</example>
+				<figure>
+					<title></title>
+					<mediaobject>
+						<imageobject>
+							<imagedata></imagedata>
+						</imageobject>
+						<textobject>
+							<phrase></phrase>
+						</textobject>
+					</mediaobject>
+				</figure>
+				<example>
+					<title>inlinemedieobject with textobject</title>
+				</example>
+				<note>
+					<para>For some tips on writing good <literal>alt</literal> text, O'reilly's universal design for web applications is a great resource.</para>
+				</note>
+			</section>
 		</section>
 		<section>
 			<title>Tables</title>
-			<para></para>
+			<para>There are two main types of tables: formal and informal.  If your table requires a description, you expect to refer to it later elsewhere in the text, or it's especially complex, you probably want to use a <tag>table</tag> element.  Otherwise, consider an <tag>informaltable</tag> element.</para>
+			<section>
+				<title>Formal tables</title>
+				<para>Here's the markup for a formal <tag>table</tag> with a heading row:</para>
+				<programlisting>
+&lt;table xml:id="example-table"&gt;
+	&lt;title&gt;Example formal table&lt;/title>
+	&lt;tgroup&gt;
+		&lt;thead&gt;
+			&lt;row&gt;
+				&lt;entry&gt;Heading1&lt;/entry&gt;
+				&lt;entry&gt;Heading2&lt;/entry&gt;
+			&lt;/row&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;row&gt;
+				&lt;entry&gt;Text1&lt;/entry&gt;
+				&lt;entry&gt;Text2&lt;/entry&gt;
+			&lt;/row&gt;
+			&lt;row&gt;
+				&lt;entry&gt;Text3&lt;/entry&gt;
+				&lt;entry&gt;Text4&lt;/entry&gt;
+			&lt;/row&gt;
+		&lt;/tbody>
+	&lt;/tgroup&gt;
+&lt;/table&gt;
+				</programlisting>
+				<para><xref linkend="example-table"/> shows how it renders.</para>
+				<table xml:id="example-table">
+					<title>Example formal table</title>
+					<tgroup>
+						<thead>
+							<row>
+								<entry>Heading1</entry>
+								<entry>Heading2</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry>Text1</entry>
+								<entry>Text2</entry>
+							</row>
+							<row>
+								<entry>Text3</entry>
+								<entry>Text4</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</table>
+				<para>The table's title is different fromits heading row (<tag>thead</tag>).  The title describes the entire table, while the heading row contains information about each column.  A formal table does not always need to have a heading row.</para>
+				<para>Tables can get <emphasis>much</emphasis> more complex than this example.  See <link xlink:href="http://www.docbook.org/tdg5/en/html/table.html"/> for details, though note that not everything discussed there will work with our toolchain or conform to O'Reilly's house style (check with your editor about the latter).</para>
+			</section>
+			<section>
+				<title>Informal tables</title>
+				<para>the markuo of an <tag>informaltable</tag> is similar to that of a <tag>table</tag>, but it does not have a <tag>title</tag> or (in most cases) <literal>xml:id</literal>.  Here's an example.</para>
+				<informaltable>
+					<tgroup>
+						<tbody>
+							<row>
+								<entry>Text1</entry>
+								<entry>Text2</entry>
+							</row>
+							<row>
+								<entry>Text3</entry>
+								<entry>Text4</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</informaltable>
+				<para>This particular informal table doesn't have a heading (no <tag>thead</tag>), but it would be valid to add one.  Also, the bottom rule has been suppressed with the use of a <literal>frame="none"</literal> attribute; see the next section for details on table borders.</para>
+				<note>Please check with your editor about O'Reilly house style before overriding table defautls, as table markup can be quite labour-intensive for you or Production staff to change back later on.</note>
+			</section>
+			<section>
+				<title>Table frames and border lines</title>
+				<para>You can adjust the apperance of the gridlines and borders in <tag>table</tag>s and <tag>informaltable</tag>s.  By default, in most series a table will render with a gray bottom border.  If you set the <literal>frame</literal> attribtue to <literal>all</literal>, all sides will be black.  If you set the <literal>frame</literal> attribute to <literal>none</literal>, the bottom rule will be suppressed.</para>
+				<para>You can control the interiour cell borders by using the <literal>colsep</literal> and <literal>rowsep</literal> attributes on various elements in the table.  Use them to toggle on or off borders, either to the right of (in the case of <literal>colsep</literal>) or below (in the case of <literal>rowsep</literal>) the cells in the element's scope.  For both attributes, a value of <literal>1</literal> draws the rule, and a value of <literal>0</literal> suppresses it.  These don't affect the outer table frame, which is controlled by the <literal>frame</literal> attribute.</para>
+			</section>
 		</section>
 		<section>
 			<title>Lists</title>
-			<para></para>
+			<para>There are four common types of lists.  The O'Reilly Stylesheet and word list has more details about when to use them, but here's the markup and an example of each.</para>
 		</section>
 		<section>
 			<title>Notes, Warnings, and Sidebars</title>
@@ -443,26 +633,26 @@
 		<section>
 			<title>Examples and programlistings</title>
 			<programlisting language="c">
-				bool set_context(sds json)
-				{
-					int err, ctx_size = sizeof(ctx) / sizeof(ctx[0]);
-					if ((err = parse_json(json, strlen(json), ctx, ctx_size)) > 0) {
-						return true;
-					} else {
-						switch (err) {
-							case JSON_STRING_INVALID:
-								fputs("JSON string invalid", stderr);
-								break;
-							case JSON_STRING_INCOMPLETE:
-								fputs("JSON string incomplete", stderr);
-								break;
-							case JSON_TOKEN_ARRAY_TOO_SMALL:
-								fputs("Token array too small", stderr);
-								break;
-						}
-						return false;
-					}
-				}
+bool set_context(sds json)
+{
+	int err, ctx_size = sizeof(ctx) / sizeof(ctx[0]);
+	if ((err = parse_json(json, strlen(json), ctx, ctx_size)) > 0) {
+		return true;
+	} else {
+		switch (err) {
+			case JSON_STRING_INVALID:
+				fputs("JSON string invalid", stderr);
+				break;
+			case JSON_STRING_INCOMPLETE:
+				fputs("JSON string incomplete", stderr);
+				break;
+			case JSON_TOKEN_ARRAY_TOO_SMALL:
+				fputs("Token array too small", stderr);
+				break;
+		}
+		return false;
+	}
+}
 			</programlisting>
 		</section>
 		<section>
@@ -546,20 +736,44 @@
 				</tbody>
 			</tgroup>
 		</informaltable>
+		<section>
+			<title>XML Entity Files</title>
+			<para>If you use a lot of special characters, you can import entity files into your document like so:</para>
+			<programlisting>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!DOCTYPE chapter [
+&lt;!ENTITY % isopub SYSTEM 
+	"http://www.w3.org/2003/entities/2007/isopub.ent"
+&gt;
+%isopub;
+]&gt;
+&lt;chapter xmlns="http://docbook.org/ns/docbook" version="5.0"
+         xml:id="chapter-id"&gt;
+&lt;title&gt;DocBook V5.0 &amp;ndash; the superb documentation format&lt;/title&gt;
+			</programlisting>
+			<para>The W3C maintains a set of entity definition files.  The file <filename>isopub.ent</filename> contains standard typographic tools such as <literal>&amp;hellip;</literal> and <literal>&amp;mdash;</literal> but no curly quotes, <filename>w3centities-f.ent</filename> is a flattened version that includes all entities.  See <link xlink:href="http://www.w3.org/2003/entities/"/> for a list of available entity files.</para>
+		</section>
 	</section>
 	<section>
 		<title>Adding comments to your manuscript</title>
 		<para>You have two main options for adding comments to your manuscript: using standard XML comments (<!-- -->) and using the remark element.</para>
 		<para>XML comments are particularly useful for commenting out large blocks of text&mdash;for example, text that is under review, or text that you don't currently want to include in your manuscript. In the following example, the entire paragraph is commented out:</para>
 		<programlisting>
-			&lt;!-- O'Reilly's mission statement.
-			&lt;para&gt;O'Reilly  Media spreads the knowledge of innovators thorugh its books, online services, magazinesresearch, and conferences.  Since 1978, O'Reilly has been a chronicler and catalyst of leading-edge development, homing in on the technology trends that really matter and galvanizing their adoption by amplifying "faint signals" from the alpha geeks who are creating the future.  An active participant in the technolog community, the company has a long history of advocacy, meme-making and evangelism.&lt;/para&gt; --&gt;
+&lt;!-- O'Reilly's mission statement.
+&lt;para&gt;O'Reilly  Media spreads the knowledge of innovators thorugh its 
+books, online services, magazinesresearch, and conferences.  Since 1978, 
+O'Reilly has been a chronicler and catalyst of leading-edge development, 
+homing in on the technology trends that really matter and galvanizing 
+their adoption by amplifying "faint signals" from the alpha geeks who 
+are creating the future.  An active participant in the technolog 
+community, the company has a long history of advocacy, meme-making and 
+evangelism.&lt;/para&gt; --&gt;
 		</programlisting>
 		<para><literal>remark</literal> elements are typically used by authors to direct specific comments to the editor or Production, such as in the following:</para>
 		<programlisting>
-			&lt;remark&gt;PRODUCTION: Please stet grammatical errors in the following&lt;/remark&gt;
+&lt;remark&gt;PRODUCTION: Please stet grammatical errors in the following&lt;/remark&gt;
 
-			&lt;para&gt;I can haz cheezburger, plz?&lt;/para&gt;
+&lt;para&gt;I can haz cheezburger, plz?&lt;/para&gt;
 		</programlisting>
 		<para>if you have specific comments for Production staff, we would appreciate you formatting them as <literal>remark</literal> elements and starting them with "PRODUCTION", as done above.  This is very helpful in distinguishing comments that should be addressed during Production from other comments directed toward editorial staff or tech reviewers.</para>
 		<para>By default, comments are not rendered in your PDF builds.  <xref>displaying comments</xref> describes how to display them.</para>
