@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE book>
-<book xmlns="http://docbook.org/ns/docbook" 
-      xmlns:xlink="http://www.w3.org/1999/xlink" 
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en" 
       xmlns:xi="http://www.w3.org/2001/XInclude"
-      version="5.0" xml:id="authoring-guidelines">
+      xmlns:xlink="http://www.w3.org/1999/xlink" 
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xml:id="manual">
 	<title>Authoring Guidelines</title>
 	<subtitle>
 		<link xlink:href="http://radiodoc.github.com/">
