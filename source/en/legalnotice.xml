@@ -1,4 +1,9 @@
-<legalnotice xmlns="http://docbook.org/ns/docbook" version="5.0" 
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter [
+	<!ENTITY % allent SYSTEM "http://www.w3.org/2003/entities/2007/w3centities-f.ent">
+	%allent;
+]>
+<legalnotice xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en" 
              xmlns:xlink="http://www.w3.org/1999/xlink" 
              xml:id="manual.legalnotice">	
 	<para>Adapted from "DocBook Authoring Guidelines", by <link xlink:href="http://oreilly.com/">O'Reilly Media Inc.</link> with permission.</para>

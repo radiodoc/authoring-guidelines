@@ -1,5 +1,9 @@
-<chapter xmlns="http://docbook.org/ns/docbook" 
-         version="5.0" 
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chapter [
+	<!ENTITY % allent SYSTEM "http://www.w3.org/2003/entities/2007/w3centities-f.ent">
+	%allent;
+]>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en" 
          xmlns:xlink="http://www.w3.org/1999/xlink" 
          xmlns:svg="http://www.w3.org/2000/svg"
          xml:id="picking-an-editor">
